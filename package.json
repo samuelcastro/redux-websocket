@@ -1,5 +1,5 @@
 {
-  "name": "@tylerbuchea/redux-websocket",
+  "name": "@samuelcastro/redux-websocket",
   "version": "0.0.22",
   "description": "A redux middleware to handle websocket connections",
   "main": "dist/index.js",
