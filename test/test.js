@@ -24,6 +24,17 @@ describe('middleware', () => {
     td.verify(next(action));
   });
 
+  it('should return values from next middlewares', () => {
+    const expected = { dunno: 'Something a middleware could return (e.g. a promise)' };
+    const action = { type: 'ACTION' };
+    const next = td.func('next');
+    td.when(next(action)).thenReturn(expected);
+
+    const actual = middleware()(next)(action);
+
+    expect(actual).toBe(expected);
+  });
+
   context('createWebsocket', () => {
      it('should accept a default payload', () => {
        const payload = { url: 'ws://localhost' };
